@@ -21,7 +21,7 @@ class NektPipelineSensor(BaseSensorOperator):
 
         response.raise_for_status()
         data = response.json()
-        run_status = data.get("source").get("last_run").get("status")
+        run_status = data.get("current_status")
         print(f"Run status: {run_status}")
 
         if run_status in ["queued", "running"]:
